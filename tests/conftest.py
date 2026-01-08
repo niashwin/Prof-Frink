@@ -1,4 +1,4 @@
-"""Pytest configuration and shared fixtures for HOMER tests."""
+"""Pytest configuration and shared fixtures for FRINK tests."""
 
 import json
 import os

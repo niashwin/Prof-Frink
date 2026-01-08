@@ -1,4 +1,4 @@
--- HOMER Database Schema
+-- FRINK Database Schema
 -- Hypothesis-Oriented Machine Experimentation & Research
 --
 -- This schema defines the state persistence layer for autonomous research projects.

@@ -1,4 +1,4 @@
-"""PRD Generator for HOMER.
+"""PRD Generator for FRINK.
 
 This module generates complete PRDs (Product Requirements Documents) from
 research topic definitions. The generated PRD contains all user stories
@@ -8,7 +8,7 @@ needed to complete autonomous research.
 from datetime import datetime
 from typing import Optional
 
-from homer.lib.schemas import (
+from frink.lib.schemas import (
     PRDMetadata,
     ResearchPRD,
     ResearchTopic,

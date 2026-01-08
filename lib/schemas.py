@@ -1,4 +1,4 @@
-"""JSON Schema definitions and validators for HOMER.
+"""JSON Schema definitions and validators for FRINK.
 
 This module defines Pydantic models for runtime validation of:
 - Research topic definitions
@@ -99,7 +99,7 @@ class BaselineRequirements(BaseModel):
 class ResearchTopic(BaseModel):
     """Complete research topic definition.
 
-    This is the primary input to HOMER, defining what research should be conducted.
+    This is the primary input to FRINK, defining what research should be conducted.
     """
 
     title: str = Field(
@@ -281,7 +281,7 @@ class PRDMetadata(BaseModel):
 class ResearchPRD(BaseModel):
     """Complete research PRD (Product Requirements Document).
 
-    The PRD is the central document driving HOMER's research loop.
+    The PRD is the central document driving FRINK's research loop.
     It contains the topic definition, all user stories, and metadata.
     """
 

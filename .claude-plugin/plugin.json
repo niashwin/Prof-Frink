@@ -1,35 +1,35 @@
 {
-  "name": "homer",
+  "name": "frink",
   "version": "1.0.0",
-  "description": "HOMER: Hypothesis-Oriented Machine Experimentation & Research - Autonomous scientific research from topic to publication-ready paper",
-  "author": "HOMER Contributors",
-  "homepage": "https://github.com/homer-research/homer",
+  "description": "FRINK: Fully Autonomous Research Intelligence & Knowledge - Named after Professor Frink, Springfield's resident scientist",
+  "author": "FRINK Contributors",
+  "homepage": "https://github.com/niashwin/homer",
   "license": "MIT",
   "commands": [
     {
-      "name": "homer-init",
+      "name": "frink-init",
       "description": "Initialize a new research project from a topic definition",
-      "file": "commands/homer-init.md"
+      "file": "commands/frink-init.md"
     },
     {
-      "name": "homer-research",
+      "name": "frink-research",
       "description": "Start the autonomous research loop",
-      "file": "commands/homer-research.md"
+      "file": "commands/frink-research.md"
     },
     {
-      "name": "homer-status",
+      "name": "frink-status",
       "description": "Display current research progress and metrics",
-      "file": "commands/homer-status.md"
+      "file": "commands/frink-status.md"
     },
     {
-      "name": "homer-cancel",
+      "name": "frink-cancel",
       "description": "Stop the research loop gracefully",
-      "file": "commands/homer-cancel.md"
+      "file": "commands/frink-cancel.md"
     },
     {
-      "name": "homer-resume",
+      "name": "frink-resume",
       "description": "Resume research from a checkpoint",
-      "file": "commands/homer-resume.md"
+      "file": "commands/frink-resume.md"
     }
   ],
   "skills": [

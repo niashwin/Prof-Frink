@@ -1,4 +1,4 @@
-"""Core research loop for HOMER.
+"""Core research loop for FRINK.
 
 This module implements the main autonomous research loop following the Ralph pattern:
 1. Read state (PRD + progress)
@@ -18,9 +18,9 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Callable, Optional
 
-from homer.lib.db.manager import DatabaseManager
-from homer.lib.quality_gates import GateManager, QualityGateResult
-from homer.lib.schemas import ResearchPRD, UserStory
+from frink.lib.db.manager import DatabaseManager
+from frink.lib.quality_gates import GateManager, QualityGateResult
+from frink.lib.schemas import ResearchPRD, UserStory
 
 
 # =============================================================================

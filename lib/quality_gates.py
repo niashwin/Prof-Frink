@@ -1,4 +1,4 @@
-"""Quality Gates for HOMER.
+"""Quality Gates for FRINK.
 
 Quality gates are checkpoints that validate research quality at each stage.
 They ensure the research meets minimum standards before proceeding.
@@ -11,8 +11,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
 
-from homer.lib.db.manager import DatabaseManager
-from homer.lib.schemas import QualityGateResult
+from frink.lib.db.manager import DatabaseManager
+from frink.lib.schemas import QualityGateResult
 
 
 # =============================================================================

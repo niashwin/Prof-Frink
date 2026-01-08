@@ -1,24 +1,24 @@
-# /homer-research
+# /frink-research
 
 Start or resume the autonomous research loop.
 
 ## Usage
 
 ```
-/homer-research [--resume] [--max-iterations N]
+/frink-research [--resume] [--max-iterations N]
 ```
 
 ## Description
 
-This command starts the main HOMER research loop. It autonomously executes user stories from the PRD, invoking appropriate skills and passing through quality gates at each stage.
+This command starts the main FRINK research loop. It autonomously executes user stories from the PRD, invoking appropriate skills and passing through quality gates at each stage.
 
 ## The Research Loop
 
-HOMER follows the Ralph pattern for autonomous execution:
+FRINK follows the Ralph pattern for autonomous execution:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                      HOMER RESEARCH LOOP                         │
+│                      FRINK RESEARCH LOOP                         │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │   1. READ STATE                                                  │
@@ -82,7 +82,7 @@ At each stage transition, a quality gate validates:
 
 ## Skills Invoked
 
-HOMER automatically invokes skills from claude-scientific-skills:
+FRINK automatically invokes skills from claude-scientific-skills:
 
 - `literature-review`, `semantic-scholar`, `openalex`
 - `pandas-expert`, `eda`, `scikit-learn`
@@ -101,12 +101,12 @@ During execution:
 
 ## Stopping
 
-The loop can be stopped at any time. Use `/homer-resume` to continue from the last checkpoint.
+The loop can be stopped at any time. Use `/frink-resume` to continue from the last checkpoint.
 
 ## Example
 
 ```
-/homer-research --max-iterations 10
+/frink-research --max-iterations 10
 ```
 
 This runs up to 10 iterations before pausing for review.

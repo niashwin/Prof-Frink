@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from homer.lib.db.manager import DatabaseManager
-from homer.lib.quality_gates import (
+from frink.lib.db.manager import DatabaseManager
+from frink.lib.quality_gates import (
     DataGate,
     ExperimentGate,
     FinalGate,

@@ -2,7 +2,7 @@
 
 import pytest
 
-from homer.lib.prd_generator import (
+from frink.lib.prd_generator import (
     ANALYSIS_STORIES,
     DATA_STORIES,
     EXPERIMENT_STORIES,
@@ -14,7 +14,7 @@ from homer.lib.prd_generator import (
     PRDGenerator,
     generate_prd,
 )
-from homer.lib.schemas import (
+from frink.lib.schemas import (
     BaselineRequirements,
     Constraints,
     DatasetConfig,

@@ -1,12 +1,12 @@
 [project]
-name = "homer"
+name = "frink"
 version = "1.0.0"
-description = "HOMER: Hypothesis-Oriented Machine Experimentation & Research - Autonomous Scientific Research Agent"
+description = "FRINK: Fully Autonomous Research Intelligence & Knowledge - Named after Professor Frink"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.12"
 authors = [
-    {name = "HOMER Contributors"}
+    {name = "FRINK Contributors"}
 ]
 keywords = [
     "autonomous-research",
@@ -79,27 +79,27 @@ nlp = [
 ]
 
 full = [
-    "homer[dev,nlp]",
+    "frink[dev,nlp]",
     "shap>=0.44",
     "hdbscan>=0.8",
     "kaggle>=1.5",
 ]
 
 [project.urls]
-Homepage = "https://github.com/homer-research/homer"
-Documentation = "https://github.com/homer-research/homer#readme"
-Repository = "https://github.com/homer-research/homer.git"
-Issues = "https://github.com/homer-research/homer/issues"
+Homepage = "https://github.com/niashwin/homer"
+Documentation = "https://github.com/niashwin/homer#readme"
+Repository = "https://github.com/niashwin/homer.git"
+Issues = "https://github.com/niashwin/homer/issues"
 
 [project.scripts]
-homer = "homer.cli:main"
+frink = "frink.cli:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["homer"]
+packages = ["frink"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -115,7 +115,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["homer"]
+source = ["frink"]
 branch = true
 omit = ["tests/*", "**/__init__.py"]
 
@@ -176,7 +176,7 @@ ignore = [
 ]
 
 [tool.ruff.isort]
-known-first-party = ["homer"]
+known-first-party = ["frink"]
 
 [tool.mypy]
 python_version = "3.12"

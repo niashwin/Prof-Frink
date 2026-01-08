@@ -1,4 +1,4 @@
-"""Database manager for HOMER state persistence."""
+"""Database manager for FRINK state persistence."""
 
 import json
 import sqlite3
@@ -9,7 +9,7 @@ from typing import Any, Generator, Optional
 
 
 class DatabaseManager:
-    """Manages SQLite database connections and operations for HOMER research state."""
+    """Manages SQLite database connections and operations for FRINK research state."""
 
     def __init__(self, db_path: Path | str = "research_state.db"):
         """Initialize database manager.

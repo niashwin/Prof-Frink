@@ -1,1 +1,1 @@
-"""HOMER library modules."""
+"""FRINK library modules."""

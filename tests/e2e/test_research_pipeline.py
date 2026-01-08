@@ -1,4 +1,4 @@
-"""End-to-end tests for HOMER research pipeline.
+"""End-to-end tests for FRINK research pipeline.
 
 These tests validate the complete research flow from topic definition
 to paper generation using publicly available Kaggle datasets.
@@ -20,10 +20,10 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from homer.lib.db.manager import DatabaseManager
-from homer.lib.prd_generator import generate_prd
-from homer.lib.quality_gates import GateManager
-from homer.lib.research_loop import (
+from frink.lib.db.manager import DatabaseManager
+from frink.lib.prd_generator import generate_prd
+from frink.lib.quality_gates import GateManager
+from frink.lib.research_loop import (
     CheckpointManager,
     LoopStatus,
     ResearchLoop,
@@ -31,7 +31,7 @@ from homer.lib.research_loop import (
     StoryExecutor,
     StoryResult,
 )
-from homer.lib.schemas import (
+from frink.lib.schemas import (
     Constraints,
     DatasetConfig,
     ResearchPRD,

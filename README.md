@@ -1,11 +1,12 @@
 <p align="center">
-  <img src="assets/homer-scientist.png" alt="HOMER - Autonomous Research Agent" width="300"/>
+  <img src="assets/frink-professor.png" alt="FRINK - Autonomous Research Agent" width="300"/>
   <br><br>
-  <em>Add your own Homer scientist image to assets/homer-scientist.png</em>
+  <em>"Glavin! The research, it does itself!"</em>
 </p>
 
-<h1 align="center">HOMER</h1>
-<h3 align="center">Hypothesis-Oriented Machine Experimentation & Research</h3>
+<h1 align="center">FRINK</h1>
+<h3 align="center">Fully Autonomous Research Intelligence & Knowledge</h3>
+<h4 align="center"><em>Named after Professor Frink, Springfield's resident scientist</em></h4>
 
 <p align="center">
   <strong>An autonomous AI agent for end-to-end scientific research</strong>
@@ -31,9 +32,9 @@
 
 ## Overview
 
-**HOMER** is an autonomous research agent that takes a scientific hypothesis and dataset specification as input, then autonomously conducts the entire research pipeline—from literature review to publication-ready paper generation.
+**FRINK** is an autonomous research agent that takes a scientific hypothesis and dataset specification as input, then autonomously conducts the entire research pipeline—from literature review to publication-ready paper generation.
 
-Built on the [Ralph](https://github.com/snarktank/ralph) autonomous loop pattern and leveraging [Claude Scientific Skills](https://github.com/K-Dense-AI/claude-scientific-skills), HOMER orchestrates complex multi-stage research workflows without human intervention.
+Built on the [Ralph](https://github.com/snarktank/ralph) autonomous loop pattern and leveraging [Claude Scientific Skills](https://github.com/K-Dense-AI/claude-scientific-skills), FRINK orchestrates complex multi-stage research workflows without human intervention.
 
 ## Features
 
@@ -72,19 +73,19 @@ Create a `topic.json` file:
 ### 2. Initialize the Project
 
 ```bash
-/homer-init "attention-mechanisms"
+/frink-init "attention-mechanisms"
 ```
 
 ### 3. Start Autonomous Research
 
 ```bash
-/homer-research
+/frink-research
 ```
 
 ### 4. Monitor Progress
 
 ```bash
-/homer-status --detailed
+/frink-status --detailed
 ```
 
 ## Installation
@@ -95,7 +96,7 @@ Create a `topic.json` file:
 - Claude Code CLI
 - Git
 
-### Install HOMER
+### Install FRINK
 
 ```bash
 # Clone the repository
@@ -115,8 +116,8 @@ claude plugins install .
 # Clone the skills repository
 git clone https://github.com/K-Dense-AI/claude-scientific-skills.git
 
-# Link to HOMER
-export HOMER_SKILLS_PATH="./claude-scientific-skills"
+# Link to FRINK
+export FRINK_SKILLS_PATH="./claude-scientific-skills"
 ```
 
 ## Usage
@@ -125,11 +126,11 @@ export HOMER_SKILLS_PATH="./claude-scientific-skills"
 
 | Command | Description |
 |---------|-------------|
-| `/homer-init <name>` | Initialize a new research project |
-| `/homer-research` | Start the autonomous research loop |
-| `/homer-status` | Display current project status |
-| `/homer-resume` | Resume from last checkpoint |
-| `/homer-cancel` | Cancel the current project |
+| `/frink-init <name>` | Initialize a new research project |
+| `/frink-research` | Start the autonomous research loop |
+| `/frink-status` | Display current project status |
+| `/frink-resume` | Resume from last checkpoint |
+| `/frink-cancel` | Cancel the current project |
 
 ### Research Topic Schema
 
@@ -156,7 +157,7 @@ export HOMER_SKILLS_PATH="./claude-scientific-skills"
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         HOMER SYSTEM                             │
+│                         FRINK SYSTEM                             │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐       │
@@ -209,15 +210,15 @@ Each gate validates stage completion before proceeding:
 ## Project Structure
 
 ```
-homer/
+frink/
 ├── .claude-plugin/
 │   └── plugin.json          # Claude Code plugin manifest
 ├── commands/                 # CLI command definitions
-│   ├── homer-init.md
-│   ├── homer-research.md
-│   ├── homer-status.md
-│   ├── homer-resume.md
-│   └── homer-cancel.md
+│   ├── frink-init.md
+│   ├── frink-research.md
+│   ├── frink-status.md
+│   ├── frink-resume.md
+│   └── frink-cancel.md
 ├── lib/                      # Core library
 │   ├── db/
 │   │   ├── schema.sql       # SQLite schema
@@ -265,18 +266,18 @@ pip install -e ".[dev]"
 pytest tests/
 
 # Run with coverage
-pytest --cov=homer --cov-report=html
+pytest --cov=frink --cov-report=html
 
 # Type checking
-mypy homer/
+mypy frink/
 
 # Linting
-ruff check homer/
+ruff check frink/
 ```
 
 ## Acknowledgments
 
-HOMER builds upon the excellent work of:
+FRINK builds upon the excellent work of:
 
 - **[Ralph](https://github.com/snarktank/ralph)** - Autonomous AI agent loop pattern
 - **[Ralph Wiggum Marketer](https://github.com/muratcankoylan/ralph-wiggum-marketer)** - Claude Code plugin architecture
@@ -297,5 +298,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  <sub>Built with science and determination</sub>
+  <sub>Built with science and determination... and the occasional "Glavin!"</sub>
+  <br>
+  <sub>Part of the Simpsons-verse autonomous agent family, alongside <a href="https://github.com/snarktank/ralph">Ralph</a> and <a href="https://github.com/muratcankoylan/ralph-wiggum-marketer">Ralph Wiggum</a></sub>
 </p>

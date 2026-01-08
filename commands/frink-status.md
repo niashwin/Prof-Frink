@@ -1,11 +1,11 @@
-# /homer-status
+# /frink-status
 
-Display the current status of the HOMER research project.
+Display the current status of the FRINK research project.
 
 ## Usage
 
 ```
-/homer-status [--detailed] [--stage STAGE]
+/frink-status [--detailed] [--stage STAGE]
 ```
 
 ## Description
@@ -24,7 +24,7 @@ Shows comprehensive status information about the current research project, inclu
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
-║                    HOMER PROJECT STATUS                           ║
+║                    FRINK PROJECT STATUS                           ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  Project: attention-mechanisms-efficiency                         ║
 ║  Status:  IN_PROGRESS                                            ║
@@ -111,7 +111,7 @@ Recent Activity (last 10):
 ## Example
 
 ```
-/homer-status --detailed --stage experiment
+/frink-status --detailed --stage experiment
 ```
 
 Shows detailed experiment stage status with all stories and their acceptance criteria.

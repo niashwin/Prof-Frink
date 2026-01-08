@@ -1,11 +1,11 @@
-# /homer-cancel
+# /frink-cancel
 
-Cancel the current HOMER research project.
+Cancel the current FRINK research project.
 
 ## Usage
 
 ```
-/homer-cancel [--force] [--preserve-artifacts]
+/frink-cancel [--force] [--preserve-artifacts]
 ```
 
 ## Description
@@ -68,28 +68,28 @@ The following are always preserved:
 A cancelled project can be resumed later:
 
 ```
-/homer-resume --checkpoint pre_cancel
+/frink-resume --checkpoint pre_cancel
 ```
 
 Or start fresh with same topic:
 ```
-/homer-init "project-name-v2"
+/frink-init "project-name-v2"
 ```
 
 ## Example
 
 Cancel with confirmation:
 ```
-/homer-cancel
+/frink-cancel
 ```
 
 Force cancel without prompt:
 ```
-/homer-cancel --force
+/frink-cancel --force
 ```
 
 ## See Also
 
-- `/homer-status` - Check current status before cancelling
-- `/homer-resume` - Resume a cancelled project
-- `/homer-init` - Start a new project
+- `/frink-status` - Check current status before cancelling
+- `/frink-resume` - Resume a cancelled project
+- `/frink-init` - Start a new project

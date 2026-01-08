@@ -1,11 +1,11 @@
-# /homer-init
+# /frink-init
 
-Initialize a new HOMER autonomous research project.
+Initialize a new FRINK autonomous research project.
 
 ## Usage
 
 ```
-/homer-init <project_name>
+/frink-init <project_name>
 ```
 
 ## Description
@@ -33,7 +33,7 @@ This command initializes a new autonomous research project. You will be guided t
 ## Example
 
 ```
-/homer-init "attention-mechanisms-efficiency"
+/frink-init "attention-mechanisms-efficiency"
 ```
 
 ## Research Topic Fields
@@ -67,4 +67,4 @@ After initialization:
 
 ## Next Steps
 
-After initialization, run `/homer-research` to start the autonomous research loop.
+After initialization, run `/frink-research` to start the autonomous research loop.

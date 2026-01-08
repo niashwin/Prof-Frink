@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from homer.lib.db.manager import DatabaseManager, get_database_manager
+from frink.lib.db.manager import DatabaseManager, get_database_manager
 
 
 @pytest.fixture

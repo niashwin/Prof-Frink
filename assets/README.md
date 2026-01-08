@@ -1,18 +1,21 @@
 # Assets
 
-This directory contains image assets for the HOMER project.
+This directory contains image assets for the FRINK project.
 
-## homer-scientist.png
+## frink-professor.png
 
-Place a Homer Simpson scientist image here. Suggested sources:
+Place a Professor Frink image here. Professor Frink is the scientist character from The Simpsons - the perfect mascot for an autonomous research system!
 
-- [KindPNG - Science Homer](https://www.kindpng.com/imgv/ihmJJxJ_homer-homero-homerosimpson-homersimpson-science-homero-pensando-png/) - Has a science-themed Homer
-- [pngimg.com](https://pngimg.com/image/30419) - Various Homer PNG images
-- [NicePNG](https://www.nicepng.com/s/homer-simpson/) - Homer Simpson collection
+**Suggested sources:**
+- Search for "Professor Frink PNG" on image sites
+- [Simpsons Wiki - Professor Frink](https://simpsons.fandom.com/wiki/Professor_Frink)
 
 **Requirements:**
 - PNG format with transparent background
 - Recommended size: 300x300 to 500x500 pixels
-- Science/lab coat theme preferred
 
 **Note:** Simpsons characters are copyrighted by 20th Century Fox/Disney. Ensure you have appropriate rights for commercial use, or use only for personal/educational projects.
+
+## About Professor Frink
+
+Professor John Nerdelbaum Frink Jr. is Springfield's resident scientist, inventor, and professor. Known for his signature "Glavin!" exclamation and his wild inventions, he's the embodiment of enthusiastic scientific pursuit - making him the perfect namesake for an autonomous research agent!

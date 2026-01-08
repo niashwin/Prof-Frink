@@ -1,11 +1,11 @@
-# /homer-resume
+# /frink-resume
 
-Resume the HOMER research loop from the last checkpoint.
+Resume the FRINK research loop from the last checkpoint.
 
 ## Usage
 
 ```
-/homer-resume [--checkpoint NAME] [--max-iterations N]
+/frink-resume [--checkpoint NAME] [--max-iterations N]
 ```
 
 ## Description
@@ -19,7 +19,7 @@ Resumes the autonomous research loop from a saved checkpoint. This is useful whe
 
 ## Checkpoint System
 
-HOMER automatically creates checkpoints at:
+FRINK automatically creates checkpoints at:
 
 1. **Stage Completion**: When all stories in a stage are done
 2. **Quality Gate Pass**: After passing a quality gate
@@ -28,7 +28,7 @@ HOMER automatically creates checkpoints at:
 
 ## What's Restored
 
-When resuming, HOMER restores:
+When resuming, FRINK restores:
 
 - PRD state (completed stories, current progress)
 - Database state (all research artifacts)
@@ -42,7 +42,7 @@ When resuming, HOMER restores:
 
 ## Available Checkpoints
 
-Run `/homer-status` to see available checkpoints:
+Run `/frink-status` to see available checkpoints:
 
 ```
 Checkpoints:
@@ -82,17 +82,17 @@ Checkpoints:
 
 Resume from latest checkpoint:
 ```
-/homer-resume
+/frink-resume
 ```
 
 Resume from a specific checkpoint:
 ```
-/homer-resume --checkpoint stage_data_complete
+/frink-resume --checkpoint stage_data_complete
 ```
 
 Resume with iteration limit:
 ```
-/homer-resume --max-iterations 5
+/frink-resume --max-iterations 5
 ```
 
 ## Error Recovery
@@ -105,6 +105,6 @@ If resuming after an error:
 
 ## See Also
 
-- `/homer-status` - View current status and checkpoints
-- `/homer-research` - Start fresh research loop
-- `/homer-cancel` - Cancel the current project
+- `/frink-status` - View current status and checkpoints
+- `/frink-research` - Start fresh research loop
+- `/frink-cancel` - Cancel the current project
