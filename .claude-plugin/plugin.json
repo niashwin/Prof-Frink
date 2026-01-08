@@ -1,0 +1,59 @@
+{
+  "name": "homer",
+  "version": "1.0.0",
+  "description": "HOMER: Hypothesis-Oriented Machine Experimentation & Research - Autonomous scientific research from topic to publication-ready paper",
+  "author": "HOMER Contributors",
+  "homepage": "https://github.com/homer-research/homer",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "homer-init",
+      "description": "Initialize a new research project from a topic definition",
+      "file": "commands/homer-init.md"
+    },
+    {
+      "name": "homer-research",
+      "description": "Start the autonomous research loop",
+      "file": "commands/homer-research.md"
+    },
+    {
+      "name": "homer-status",
+      "description": "Display current research progress and metrics",
+      "file": "commands/homer-status.md"
+    },
+    {
+      "name": "homer-cancel",
+      "description": "Stop the research loop gracefully",
+      "file": "commands/homer-cancel.md"
+    },
+    {
+      "name": "homer-resume",
+      "description": "Resume research from a checkpoint",
+      "file": "commands/homer-resume.md"
+    }
+  ],
+  "skills": [
+    {
+      "name": "research",
+      "description": "Meta-skill for autonomous scientific research",
+      "file": "skills/research/SKILL.md"
+    }
+  ],
+  "hooks": {
+    "file": "hooks/hooks.json"
+  },
+  "dependencies": {
+    "plugins": [
+      "K-Dense-AI/claude-scientific-skills"
+    ],
+    "python": ">=3.12"
+  },
+  "keywords": [
+    "research",
+    "scientific",
+    "autonomous",
+    "machine-learning",
+    "literature-review",
+    "paper-writing"
+  ]
+}

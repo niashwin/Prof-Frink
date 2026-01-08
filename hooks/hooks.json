@@ -1,0 +1,31 @@
+{
+  "hooks": [
+    {
+      "type": "PreToolUse",
+      "matcher": {
+        "tool_name": "Write",
+        "path_pattern": "research_prd.json"
+      },
+      "command": "${PLUGIN_DIR}/hooks/validate-prd.sh",
+      "timeout": 10000,
+      "description": "Validate PRD structure before writing"
+    },
+    {
+      "type": "PostToolUse",
+      "matcher": {
+        "tool_name": "Bash",
+        "command_pattern": "git commit"
+      },
+      "command": "${PLUGIN_DIR}/hooks/post-commit.sh",
+      "timeout": 5000,
+      "description": "Update progress tracking after commits"
+    },
+    {
+      "type": "Stop",
+      "matcher": "*",
+      "command": "${PLUGIN_DIR}/hooks/stop-hook.sh",
+      "timeout": 30000,
+      "description": "Clean up and checkpoint on stop"
+    }
+  ]
+}

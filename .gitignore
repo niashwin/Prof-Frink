@@ -1,0 +1,188 @@
+# =============================================================================
+# HOMER .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# -----------------------------------------------------------------------------
+# Testing
+# -----------------------------------------------------------------------------
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# -----------------------------------------------------------------------------
+# IDEs and Editors
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# -----------------------------------------------------------------------------
+# OS Generated
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.bak
+*.tmp
+*.temp
+
+# -----------------------------------------------------------------------------
+# Jupyter Notebooks
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# -----------------------------------------------------------------------------
+# Research Artifacts (generated during runs)
+# -----------------------------------------------------------------------------
+research_state.db
+research_state.db-wal
+research_state.db-shm
+progress.txt
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# Generated outputs
+outputs/
+results/
+models/
+figures/
+paper/
+data/raw/
+data/processed/
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+*.log
+logs/
+
+# -----------------------------------------------------------------------------
+# Secrets and Credentials
+# -----------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+secrets.yaml
+config.local.yaml
+
+# -----------------------------------------------------------------------------
+# Claude Code Session Files (DO NOT COMMIT)
+# -----------------------------------------------------------------------------
+# These are development/session tracking files
+SPECIFICATION.md
+IMPLEMENTATION_PLAN.md
+REFLECTION_ROUNDS.md
+TEST_SPECIFICATIONS.md
+CLAUDE.md
+*.session
+.claude/
+.claude-session/
+
+# -----------------------------------------------------------------------------
+# Reference Repositories (DO NOT COMMIT)
+# These are cloned for reference only
+# -----------------------------------------------------------------------------
+# Upstream reference repos
+ralph/
+ralph-wiggum-marketer/
+claude-scientific-skills/
+
+# Any other cloned repos
+snarktank-ralph/
+K-Dense-AI-*/
+
+# -----------------------------------------------------------------------------
+# Build and Distribution
+# -----------------------------------------------------------------------------
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# -----------------------------------------------------------------------------
+# Documentation Build
+# -----------------------------------------------------------------------------
+docs/_build/
+site/
+
+# -----------------------------------------------------------------------------
+# Mypy
+# -----------------------------------------------------------------------------
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# -----------------------------------------------------------------------------
+# Ruff
+# -----------------------------------------------------------------------------
+.ruff_cache/
+
+# -----------------------------------------------------------------------------
+# Local development
+# -----------------------------------------------------------------------------
+scratch/
+tmp/
+temp/
+local/
+.local/
