@@ -1,5 +1,7 @@
 <p align="center">
   <img src="assets/homer-scientist.png" alt="HOMER - Autonomous Research Agent" width="300"/>
+  <br><br>
+  <em>Add your own Homer scientist image to assets/homer-scientist.png</em>
 </p>
 
 <h1 align="center">HOMER</h1>
@@ -97,7 +99,7 @@ Create a `topic.json` file:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/homer.git
+git clone https://github.com/niashwin/homer.git
 cd homer
 
 # Install dependencies
@@ -255,7 +257,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone and install in development mode
-git clone https://github.com/yourusername/homer.git
+git clone https://github.com/niashwin/homer.git
 cd homer
 pip install -e ".[dev]"
 
