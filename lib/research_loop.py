@@ -18,9 +18,9 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Callable, Optional
 
-from frink.lib.db.manager import DatabaseManager
-from frink.lib.quality_gates import GateManager, QualityGateResult
-from frink.lib.schemas import ResearchPRD, UserStory
+from lib.db.manager import DatabaseManager
+from lib.quality_gates import GateManager, QualityGateResult
+from lib.schemas import ResearchPRD, UserStory
 
 
 # =============================================================================
@@ -373,8 +373,8 @@ class CheckpointManager:
         completed = sum(1 for s in prd.user_stories if s.passes)
         total = len(prd.user_stories)
 
-        # Generate checkpoint name
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        # Generate checkpoint name with microseconds for uniqueness
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
         name = f"{checkpoint_type}_{timestamp}"
 
         return self.db.create_checkpoint(

@@ -8,7 +8,7 @@ needed to complete autonomous research.
 from datetime import datetime
 from typing import Optional
 
-from frink.lib.schemas import (
+from lib.schemas import (
     PRDMetadata,
     ResearchPRD,
     ResearchTopic,

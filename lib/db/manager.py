@@ -733,7 +733,7 @@ class DatabaseManager:
             Checkpoint dict or None
         """
         return self.fetch_one(
-            "SELECT * FROM checkpoints WHERE project_id = ? ORDER BY created_at DESC LIMIT 1",
+            "SELECT * FROM checkpoints WHERE project_id = ? ORDER BY created_at DESC, id DESC LIMIT 1",
             (project_id,)
         )
 

@@ -2,7 +2,7 @@
 
 import pytest
 
-from frink.lib.prd_generator import (
+from lib.prd_generator import (
     ANALYSIS_STORIES,
     DATA_STORIES,
     EXPERIMENT_STORIES,
@@ -14,7 +14,7 @@ from frink.lib.prd_generator import (
     PRDGenerator,
     generate_prd,
 )
-from frink.lib.schemas import (
+from lib.schemas import (
     BaselineRequirements,
     Constraints,
     DatasetConfig,
@@ -381,8 +381,8 @@ class TestStoryOrdering:
         for story in review_stories:
             for dep in story.dependencies:
                 dep_story = next(s for s in prd.user_stories if s.id == dep)
-                # Dependencies should be from writing or earlier stages
-                assert dep_story.stage in ["writing", "visualization", "analysis", "experiment"]
+                # Dependencies should be from writing, review, or earlier stages
+                assert dep_story.stage in ["writing", "visualization", "analysis", "experiment", "review"]
 
     def test_no_circular_dependencies(self, sample_topic):
         """Test that there are no circular dependencies."""

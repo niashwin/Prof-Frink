@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from frink.lib.schemas import (
+from lib.schemas import (
     BaselineRequirements,
     Constraints,
     DatasetConfig,

@@ -20,10 +20,10 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from frink.lib.db.manager import DatabaseManager
-from frink.lib.prd_generator import generate_prd
-from frink.lib.quality_gates import GateManager
-from frink.lib.research_loop import (
+from lib.db.manager import DatabaseManager
+from lib.prd_generator import generate_prd
+from lib.quality_gates import GateManager
+from lib.research_loop import (
     CheckpointManager,
     LoopStatus,
     ResearchLoop,
@@ -31,7 +31,7 @@ from frink.lib.research_loop import (
     StoryExecutor,
     StoryResult,
 )
-from frink.lib.schemas import (
+from lib.schemas import (
     Constraints,
     DatasetConfig,
     ResearchPRD,
@@ -54,175 +54,9 @@ def temp_project_dir() -> Generator[Path, None, None]:
 
 @pytest.fixture
 def temp_db(temp_project_dir: Path) -> Generator[DatabaseManager, None, None]:
-    """Create a temporary database."""
+    """Create a temporary database using the actual schema."""
     db_path = temp_project_dir / "research_state.db"
-
-    # Create full schema
-    schema = """
-        PRAGMA foreign_keys = ON;
-        PRAGMA journal_mode = WAL;
-
-        CREATE TABLE IF NOT EXISTS research_projects (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_name TEXT NOT NULL UNIQUE,
-            topic_json TEXT NOT NULL,
-            status TEXT DEFAULT 'initialized',
-            current_stage TEXT,
-            current_story_id TEXT,
-            iteration_count INTEGER DEFAULT 0,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS literature (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            title TEXT NOT NULL,
-            source TEXT NOT NULL,
-            relevance_score REAL,
-            included_in_review BOOLEAN DEFAULT FALSE,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS hypotheses (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            hypothesis_text TEXT NOT NULL,
-            source TEXT NOT NULL,
-            tested BOOLEAN DEFAULT FALSE,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS datasets (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            source TEXT NOT NULL,
-            identifier TEXT NOT NULL,
-            downloaded BOOLEAN DEFAULT FALSE,
-            eda_completed BOOLEAN DEFAULT FALSE,
-            preprocessing_completed BOOLEAN DEFAULT FALSE,
-            train_size REAL,
-            val_size REAL,
-            test_size REAL,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS experiments (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            experiment_name TEXT NOT NULL,
-            experiment_type TEXT NOT NULL,
-            status TEXT DEFAULT 'pending',
-            metrics_json TEXT,
-            random_seed INTEGER,
-            model_path TEXT,
-            notebook_path TEXT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS statistical_tests (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            test_name TEXT NOT NULL,
-            effect_size REAL,
-            ci_lower REAL,
-            ci_upper REAL,
-            assumptions_checked BOOLEAN DEFAULT FALSE,
-            significant BOOLEAN,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS paper_sections (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            section_name TEXT NOT NULL,
-            version INTEGER DEFAULT 1,
-            content TEXT,
-            word_count INTEGER,
-            status TEXT DEFAULT 'outline',
-            section_order INTEGER,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(project_id, section_name, version)
-        );
-
-        CREATE TABLE IF NOT EXISTS figures (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            figure_type TEXT NOT NULL,
-            file_path TEXT NOT NULL,
-            included_in_paper BOOLEAN DEFAULT FALSE,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS tables (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            table_type TEXT NOT NULL,
-            included_in_paper BOOLEAN DEFAULT FALSE,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS agent_log (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            iteration INTEGER NOT NULL,
-            story_id TEXT,
-            action TEXT NOT NULL,
-            action_type TEXT,
-            skill_used TEXT,
-            result TEXT,
-            output_summary TEXT,
-            learnings TEXT,
-            patterns_discovered TEXT,
-            duration_seconds REAL,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-
-        CREATE TABLE IF NOT EXISTS checkpoints (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_id INTEGER NOT NULL REFERENCES research_projects(id),
-            checkpoint_name TEXT NOT NULL,
-            checkpoint_type TEXT DEFAULT 'automatic',
-            prd_json TEXT NOT NULL,
-            progress_txt TEXT,
-            git_commit_hash TEXT,
-            stories_completed INTEGER,
-            stories_total INTEGER,
-            trigger_reason TEXT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(project_id, checkpoint_name)
-        );
-
-        CREATE VIEW IF NOT EXISTS v_project_summary AS
-        SELECT
-            p.id,
-            p.project_name,
-            p.status,
-            p.current_stage,
-            p.iteration_count,
-            (SELECT COUNT(*) FROM literature WHERE project_id = p.id AND included_in_review = 1) as papers_included,
-            (SELECT COUNT(*) FROM experiments WHERE project_id = p.id AND status = 'completed') as experiments_completed,
-            p.created_at,
-            p.updated_at
-        FROM research_projects p;
-
-        CREATE VIEW IF NOT EXISTS v_experiment_results AS
-        SELECT
-            e.id,
-            e.project_id,
-            e.experiment_name,
-            e.experiment_type,
-            e.status,
-            e.metrics_json,
-            e.random_seed
-        FROM experiments e;
-    """
-
-    import sqlite3
-    conn = sqlite3.connect(db_path)
-    conn.executescript(schema)
-    conn.close()
-
+    # DatabaseManager will initialize the database using the actual schema.sql
     db = DatabaseManager(db_path)
     yield db
 

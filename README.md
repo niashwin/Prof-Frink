@@ -280,7 +280,6 @@ ruff check frink/
 FRINK builds upon the excellent work of:
 
 - **[Ralph](https://github.com/snarktank/ralph)** - Autonomous AI agent loop pattern
-- **[Ralph Wiggum Marketer](https://github.com/muratcankoylan/ralph-wiggum-marketer)** - Claude Code plugin architecture
 - **[Claude Scientific Skills](https://github.com/K-Dense-AI/claude-scientific-skills)** - Scientific skill library
 
 ## Roadmap
@@ -300,5 +299,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <p align="center">
   <sub>Built with science and determination... and the occasional "Glavin!"</sub>
   <br>
-  <sub>Part of the Simpsons-verse autonomous agent family, alongside <a href="https://github.com/snarktank/ralph">Ralph</a> and <a href="https://github.com/muratcankoylan/ralph-wiggum-marketer">Ralph Wiggum</a></sub>
+  <sub>Part of the Simpsons-verse autonomous agent family, alongside <a href="https://github.com/snarktank/ralph">Ralph</a></sub>
 </p>

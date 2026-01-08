@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from frink.lib.db.manager import DatabaseManager
-from frink.lib.quality_gates import (
+from lib.db.manager import DatabaseManager
+from lib.quality_gates import (
     DataGate,
     ExperimentGate,
     FinalGate,
@@ -76,7 +76,9 @@ def temp_db():
             random_seed INTEGER,
             model_path TEXT,
             notebook_path TEXT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            runtime_seconds REAL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            completed_at DATETIME
         );
 
         CREATE TABLE IF NOT EXISTS hypotheses (
@@ -85,6 +87,7 @@ def temp_db():
             hypothesis_text TEXT NOT NULL,
             source TEXT NOT NULL,
             tested BOOLEAN DEFAULT FALSE,
+            priority INTEGER DEFAULT 1,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         );
 
@@ -116,6 +119,7 @@ def temp_db():
         CREATE TABLE IF NOT EXISTS figures (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             project_id INTEGER NOT NULL REFERENCES research_projects(id),
+            figure_number INTEGER,
             figure_type TEXT NOT NULL,
             file_path TEXT NOT NULL,
             included_in_paper BOOLEAN DEFAULT FALSE,
@@ -273,8 +277,9 @@ class TestDataGate:
         gate = DataGate()
         result = gate.evaluate(project_id, temp_db)
 
-        # With no datasets, checks will be empty or fail
-        assert result.score < 1.0
+        # With no datasets, the gate should fail
+        assert result.passed is False
+        assert result.score == 0.0
 
     def test_fails_with_incomplete_dataset(self, temp_db, project_id):
         """Test that gate fails with incomplete dataset processing."""
@@ -350,7 +355,8 @@ class TestExperimentGate:
             )
             temp_db.update_experiment_results(exp_id, json.dumps({"acc": 0.8}), 10.0)
 
-        gate = ExperimentGate()
+        # With threshold at 0.76, missing proposed method (score 0.75) should fail
+        gate = ExperimentGate(threshold=0.76)
         result = gate.evaluate(project_id, temp_db)
 
         assert result.passed is False

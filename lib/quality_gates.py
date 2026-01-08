@@ -11,8 +11,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
 
-from frink.lib.db.manager import DatabaseManager
-from frink.lib.schemas import QualityGateResult
+from lib.db.manager import DatabaseManager
+from lib.schemas import QualityGateResult
 
 
 # =============================================================================
@@ -228,6 +228,18 @@ class DataGate(QualityGate):
         checks = []
 
         datasets = db.get_datasets(project_id)
+
+        # Check 0: At least one dataset exists
+        if not datasets:
+            no_datasets_check = GateCheckResult(
+                check_name="datasets_exist",
+                passed=False,
+                score=0.0,
+                message="No datasets found",
+                details={"datasets_count": 0}
+            )
+            checks.append(no_datasets_check)
+            return checks
 
         # Check 1: Dataset downloaded
         downloaded = all(d.get("downloaded", False) for d in datasets)
