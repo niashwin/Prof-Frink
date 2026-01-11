@@ -258,8 +258,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone and install in development mode
-git clone https://github.com/niashwin/homer.git
-cd homer
+git clone https://github.com/niashwin/Prof-Frink.git
+cd Prof-Frink
 pip install -e ".[dev]"
 
 # Run tests
